@@ -1,0 +1,194 @@
+﻿@model SitefinityWebApp.Mvc.Models.HomeModel
+
+@{
+    Layout = "..\\Shared\\Layout.cshtml";
+}
+
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+
+    <script src="~/Scripts/PersonAngular.js"></script>
+    <script src="~/Scripts/angular-sanitize.js"></script>
+
+
+    <div class="page-wrapper" ng-app="demoModule">
+    <!-- Header Start -->
+    <header>
+        @*<div class="container">
+                <div class="topbar">
+                    <label>Attend A free <span>seminars Today!</span></label>
+                    <div class="topbtn">
+                        <a href="#"><img src="/Content/assets/images/icn_bariatics.png" alt="">My Health Rec</a>
+                        <a href="/Account/SignUp"><img src="/Content/assets/images/icn_register.png" alt="">Register</a>
+                        <a href="/Account/SignIn"><img src="/Content/assets/images/icn_login.png" alt="">Login</a>
+                    </div>
+                </div>
+                <a href="#" class="logo"><img src="/Content/assets/images/logo.png" alt=""></a>
+                <div class="info">
+                    <p>
+                        <span class="phone">(215) 762-7000</span><br class="visible-xs">
+                        &nbsp;| &nbsp;<span class="add">230 N Broad St Philadelphia, PA 19102</span>
+                    </p>
+                    <div class="input-group hidden-xs">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><img src="/Content/assets/images/icn_search.png" alt=""></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <div class="input-group visible-xs">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"><img src="/Content/assets/images/icn_search.png" alt=""></button>
+                                </span>
+                            </div>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="/Account/Home">Home <span class="sr-only">(current)</span></a></li>
+                                <li><a href="#">Health Library</a></li>
+                                <li><a href="#">Community</a></li>
+                                <li><a href="http://virtualvisitwebapp-qa.azurewebsites.net">Virtual Visit</a></li>
+                                <li><a href="#">Success Stories</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Physician</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </div>*@
+    </header>
+    <!-- Header End -->
+    <!-- Page Conetnt Start -->
+    <div class="content-wrapper">
+        <div class="banner">
+            <div class="container"> <img src="~/Content/assets/images/banner_1.png" alt=""> </div>
+        </div>
+        <div class="container">
+            <div class="col-sm-7">
+                <div class="para">
+                    <h1> The Benefits of <span>Bariatric Surgery</span></h1>
+                    <p>“Have you tried to lose weight and just can't seem to lose it or keep it off? Do you need to lose at least 75 to 100 pounds? If so, bariatric surgery may be right for you. Bariatric surgery is the medical answer for weight loss that has been proven to help patients lose weight and keep it off. “</p>
+                    </p>
+                </div>
+                <div class="para">
+                    <h1>Surgical <span> Options</span></h1>
+                    <p>There are several types of bariatric procedures you can choose. The surgical options vary in how the surgery is performed and its typical results. You and your doctor can discuss which bariatric surgery is right for you.</p>
+                    </p>
+                </div>
+                <div class="para">
+                    <h1>Begin Your<span> Journey</span></h1>
+                    <p>Once you schedule your surgery, you can register on this site to streamline the process, communicate with your doctor, get important resources, connect with other patients and more.</p>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-5 sidebanner"><img src="~/Content/assets/images/img1.png" alt=""></div>
+            <div class="sep col-sm-12"></div>
+            <div class="loginbox_otr col-sm-4">
+                <div class="login">
+                    <div class="loginheader">RETURNING PATIENT LOGIN</div>
+                    <form name="signInForm" class="login" ng-controller="demoCtrl" >
+                        <div class="alert alert-danger" ng-show="person.Error" id="diverror" style="display:none;">
+                            <strong>Error!</strong><span ng-bind-html="person.MessageError"></span>
+                        </div>
+                        @if (ViewBag.Message != null)
+                            {
+                            <div class="alert alert-success" id="mesegid">
+                                <strong></strong><span>@ViewBag.Message.</span>
+                            </div>
+
+                            }
+                        @if (!string.IsNullOrEmpty(Convert.ToString(Session["PasswordSend"])))
+                            {
+
+                            <div class="alert alert-success" id="PasswordSendid">
+                                <strong></strong><span>@Session["PasswordSend"]</span>
+                            </div>
+
+                            }
+                        @if (!string.IsNullOrEmpty(Convert.ToString(Session["ResetPassMeseg"])))
+                            {
+
+                            <div class="alert alert-success" id="ResetPassMesegid">
+                                <strong></strong><span>@Session["ResetPassMeseg"]</span>
+                            </div>
+
+                            }
+                        @if (!string.IsNullOrEmpty(Convert.ToString(Session["InvalidURl"])))
+                            {
+
+                            <div class="alert alert-danger" id="ResetPassMesegid">
+                                <strong></strong><span>@Session["InvalidURl"]</span>
+                            </div>
+
+                            }
+                        @if (!string.IsNullOrEmpty(Convert.ToString(Request["cg"])))
+                            {
+
+                            <div class="alert alert-danger" id="ResetPassMesegid">
+                                <strong></strong><span>Seems you have invalid link. Please check your link again.</span>
+                            </div>
+
+                            }
+                        @{
+
+                                Session.Remove("PasswordSend");
+                                Session.Remove("ResetPassMeseg");
+                                Session.Remove("InvalidURl");
+
+                        }
+                        <div class="form-group">
+                            <input type="text" ng-model="person.Email" class="form-control" placeholder="E-mail" name="username" id="Email" value="" autofocus />
+                            <!--<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">-->
+                        </div>
+                        <div class="form-group">
+                            <input ng-model="person.PasswordHash" class="form-control" type="password" placeholder="Password" name="password" id="PasswordHash" />
+                            <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
+                        </div>
+
+                        <input type="submit" class="btn btn-block btn-primary" name="login" id="loginbtn" value="Login" data-ng-click="SignIn()" />
+                        <!--<button type="submit" class="btn  btn-block btn-primary">login</button>-->
+                        <button type="button" class="btn btn-block btn-default" data-ng-click="GoRegister()">Register</button>
+                        <div class="lost_password">
+                            <a href="../Account/ForgotPassword">Lost your password?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="paraimg">
+                    <div class="col-sm-8">
+                        <h1> Visit <span>My Health Rec</span></h1>
+                        <p>Simply log-in to the Bariatrics Portal for access to a wealth of information about your weight loss journey. Track your progress, connect with your doctor, access important resources and more.</p>
+                        </p>
+                    </div>
+                    <div class="img col-sm-4"> <img src="~/Content/assets/images/paraimg.png" alt=""> </div>
+
+                    <button type="submit" class="btn paraimgbtn btn-default">Login Now</button>
+                </div>
+            </div>
+            <div class="bgshadow"><img src="~/Content/assets/images/boxshadow.png" alt=""></div>
+        </div>
+       
+    </div>
+</div>
+    <!-- jQuery Library -->
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+<style>
+
+       .submitLoader {
+        background: url("~/content/assets/loader2.gif") no-repeat scroll 0% 0% !important;
+    }
+</style>
