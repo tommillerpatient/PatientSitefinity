@@ -123,10 +123,6 @@
       <HintPath>bin\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="MonAgentListener, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\MonAgentListener.dll</HintPath>
@@ -185,6 +181,10 @@
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>bin\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -332,10 +332,6 @@
       <HintPath>bin\System.Spatial.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Web.Http.Cors, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>bin\System.Web.Http.Cors.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
@@ -346,30 +342,40 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Web.OData">
       <HintPath>bin\System.Web.OData.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.Razor.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Services" />
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.WebPages.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.WebPages.Deployment.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.WebPages.Razor.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Windows">
@@ -956,75 +962,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AzureWebRole.cs" />
-    <Compile Include="Data\Appointment.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ArticleContent.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ArticleSubTitle.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ArticleTitle.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ConfirmedEmail.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\DbModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\DbModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\DbModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Data\HospitalEHRSystem.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Hosptial.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\MailLog.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\PasswordHistory.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Person.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\PersonToPerson.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Physician.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Role.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Seminar.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\SeminarData.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Staff.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\UserProgress.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Visit.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Mvc\Controllers\AboutUsController.cs" />
     <Compile Include="Mvc\Controllers\CommunityController.cs" />
     <Compile Include="Mvc\Controllers\ContactPhysicianController.cs" />
@@ -1380,16 +1317,6 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\ziplatlng.txt" />
-    <Content Include="Data\DbModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DbModel.edmx</DependentUpon>
-      <LastGenOutput>DbModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Data\DbModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DbModel.edmx</DependentUpon>
-      <LastGenOutput>DbModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Default.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
@@ -1404,7 +1331,6 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
-    <Content Include="packages.config" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-sanitize.js" />
     <Content Include="Scripts\angular.js" />
@@ -1420,14 +1346,72 @@
     <Content Include="Scripts\FileSaver.js" />
     <Content Include="Scripts\GetAllPerson.js" />
     <Content Include="Scripts\jpreloader.min.js" />
-    <Content Include="Mvc\Views\Home\SignIn.cshtml" />
-    <EntityDeploy Include="Data\DbModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DbModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Data\DbModel.edmx.diagram">
-      <DependentUpon>DbModel.edmx</DependentUpon>
-    </Content>
+    <Content Include="Content\assets\arrows.psd" />
+    <Content Include="Content\assets\bullets.psd" />
+    <Content Include="Content\assets\css\calender-css\less\responsive-calendar.less" />
+    <Content Include="Content\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\assets\small_arrows.psd" />
+    <Content Include="Content\css\less\responsive-slider-parallax.less" />
+    <Content Include="Content\css\less\responsive-slider.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\animated.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\bordered-pulled.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\core.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\fixed-width.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\font-awesome.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\icons.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\larger.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\list.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\mixins.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\path.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\rotated-flipped.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\screen-reader.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\stacked.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\variables.less" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\font-awesome.scss" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_animated.scss" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_bordered-pulled.scss" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_core.scss" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_fixed-width.scss" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_icons.scss" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_larger.scss" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_list.scss" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_mixins.scss" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_path.scss" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_rotated-flipped.scss" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_screen-reader.scss" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_stacked.scss" />
+    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_variables.scss" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\revicons.eot" />
+    <Content Include="Content\fonts\revicons.ttf" />
+    <Content Include="Content\fonts\revicons.woff" />
+    <Content Include="Content\fonts\star.eot" />
+    <Content Include="Content\fonts\star.ttf" />
+    <Content Include="Content\fonts\star.woff" />
+    <Content Include="Content\fonts\WooCommerce.eot" />
+    <Content Include="Content\fonts\WooCommerce.ttf" />
+    <Content Include="Content\fonts\WooCommerce.woff" />
+    <Content Include="Content\images\background\background_1920x610.psd" />
+    <Content Include="Content\images\slider\slider1_1920x1280.psd" />
+    <Content Include="Content\js\coffee\responsive-slider.coffee" />
+    <Content Include="Content\js\extensions\index.php" />
+    <Content Include="Content\js\extensions\source\index.php" />
+    <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1589,85 +1573,17 @@
     <Content Include="App_Data\RadSpell\fr-FR.tdf" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\Sitefinity\WebsiteTemplates\LobTemplate\App_Themes\LobTemplate\Global\" />
-    <Folder Include="App_Data\Sitefinity\WebsiteTemplates\LobTemplate\App_Themes\LobTemplate\Images\" />
-    <Folder Include="App_Data\Sitefinity\WebsiteTemplates\LobTemplate\App_Themes\LobTemplate\Styles\" />
-    <Folder Include="WidgetDesigners\" />
+    <Folder Include="App_Data\Sitefinity\" />
+    <Folder Include="Mvc\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Data\GeoLocation\GeoLiteCity.dat" />
-    <Content Include="App_Data\Sitefinity\WebsiteTemplates\LobTemplate\App_Master\LobTemplate.master" />
-    <Content Include="Mvc\Views\Shared\Layout.cshtml" />
-    <Content Include="Content\assets\arrows.psd" />
-    <Content Include="Content\assets\bullets.psd" />
-    <Content Include="Content\assets\css\calender-css\less\responsive-calendar.less" />
-    <Content Include="Content\assets\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\assets\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\assets\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\assets\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Content\assets\small_arrows.psd" />
-    <Content Include="Content\css\less\responsive-slider-parallax.less" />
-    <Content Include="Content\css\less\responsive-slider.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\fonts\FontAwesome.otf" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\animated.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\bordered-pulled.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\core.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\fixed-width.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\font-awesome.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\icons.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\larger.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\list.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\mixins.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\path.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\rotated-flipped.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\screen-reader.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\stacked.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\less\variables.less" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\font-awesome.scss" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_animated.scss" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_bordered-pulled.scss" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_core.scss" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_fixed-width.scss" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_icons.scss" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_larger.scss" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_list.scss" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_mixins.scss" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_path.scss" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_rotated-flipped.scss" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_screen-reader.scss" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_stacked.scss" />
-    <Content Include="Content\fonts\font-awesome-4.6.3\font-awesome-4.6.3\scss\_variables.scss" />
-    <Content Include="Content\fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Content\fonts\FontAwesome.otf" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\fonts\revicons.eot" />
-    <Content Include="Content\fonts\revicons.ttf" />
-    <Content Include="Content\fonts\revicons.woff" />
-    <Content Include="Content\fonts\star.eot" />
-    <Content Include="Content\fonts\star.ttf" />
-    <Content Include="Content\fonts\star.woff" />
-    <Content Include="Content\fonts\WooCommerce.eot" />
-    <Content Include="Content\fonts\WooCommerce.ttf" />
-    <Content Include="Content\fonts\WooCommerce.woff" />
-    <Content Include="Content\images\background\background_1920x610.psd" />
-    <Content Include="Content\images\slider\slider1_1920x1280.psd" />
-    <Content Include="Content\js\coffee\responsive-slider.coffee" />
-    <Content Include="Content\js\extensions\index.php" />
-    <Content Include="Content\js\extensions\source\index.php" />
-    <Content Include="Mvc\Views\Home\WelcomeBack.cshtml" />
     <Content Include="Mvc\Views\AboutUs\Default.cshtml" />
     <Content Include="Mvc\Views\Community\Default.cshtml" />
     <Content Include="Mvc\Views\ContactPhysician\Default.cshtml" />
     <Content Include="Mvc\Views\HealthLibrary\Default.cshtml" />
+    <Content Include="Mvc\Views\Home\SignIn.cshtml" />
+    <Content Include="Mvc\Views\Home\WelcomeBack.cshtml" />
     <Content Include="Mvc\Views\SuccessStories\Default.cshtml" />
     <Content Include="Mvc\Views\VirtualVisit\Default.cshtml" />
     <Content Include="Scripts\angular.min.js.map" />
