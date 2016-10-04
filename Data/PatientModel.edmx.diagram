@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="44b283866f8146dfb92333ba924298d6" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.Appointment" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.ArticleContent" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.ArticleSubTitle" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.ArticleTitle" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.ConfirmedEmail" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.HospitalEHRSystem" Width="1.5" PointX="3.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.Hosptial" Width="1.5" PointX="3.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.MailLog" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.PasswordHistory" Width="1.5" PointX="5.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.Person" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.PersonToPerson" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.Physician" Width="1.5" PointX="3.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.Role" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.Seminar" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.SeminarData" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.Staff" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.UserProgress" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterPatientIndexDevModel.Visit" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="MasterPatientIndexDevModel.FK_Visit_HospitalEHRSystem" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterPatientIndexDevModel.FK_Visit_Hosptial" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterPatientIndexDevModel.FK_PersonToPerson_PersonCaregiver" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterPatientIndexDevModel.FK_PersonToPerson_PersonPatient" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterPatientIndexDevModel.FK_Visit_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterPatientIndexDevModel.FK_Visit_Physician" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -961,22 +961,105 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Controllers\TestController.cs" />
     <Compile Include="AzureWebRole.cs" />
+    <Compile Include="Data\Appointment.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ArticleContent.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ArticleSubTitle.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ArticleTitle.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ConfirmedEmail.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HospitalEHRSystem.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Hosptial.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MailLog.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PasswordHistory.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PatientModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PatientModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PatientModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PatientModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PatientModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Person.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\PersonToPerson.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Physician.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Role.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Seminar.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SeminarData.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Staff.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UserProgress.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Visit.cs">
+      <DependentUpon>PatientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Mvc\Controllers\AboutUsController.cs" />
     <Compile Include="Mvc\Controllers\CommunityController.cs" />
     <Compile Include="Mvc\Controllers\ContactPhysicianController.cs" />
+    <Compile Include="Mvc\Controllers\DebugMessageController.cs" />
+    <Compile Include="Mvc\Controllers\FooterController.cs" />
+    <Compile Include="Mvc\Controllers\HeaderController.cs" />
     <Compile Include="Mvc\Controllers\HealthLibraryController.cs" />
     <Compile Include="Mvc\Controllers\HomeController.cs" />
+    <Compile Include="Mvc\Controllers\SignUpController.cs" />
     <Compile Include="Mvc\Controllers\SuccessStoriesController.cs" />
     <Compile Include="Mvc\Controllers\VirtualVisitController.cs" />
+    <Compile Include="Mvc\Helpers\AesHelper.cs" />
+    <Compile Include="Mvc\Helpers\DebugHelper.cs" />
     <Compile Include="Mvc\Helpers\GlobalKeys.cs" />
     <Compile Include="Mvc\Helpers\HtmlHelpers.cs" />
+    <Compile Include="Mvc\Helpers\SecurityHelper.cs" />
     <Compile Include="Mvc\Helpers\UserContext.cs" />
     <Compile Include="Mvc\Models\AboutUsModel.cs" />
     <Compile Include="Mvc\Models\CommunityModel.cs" />
     <Compile Include="Mvc\Models\ContactPhysicianModel.cs" />
+    <Compile Include="Mvc\Models\FooterModel.cs" />
+    <Compile Include="Mvc\Models\HeaderModel.cs" />
     <Compile Include="Mvc\Models\HealthLibraryModel.cs" />
     <Compile Include="Mvc\Models\HomeModel.cs" />
+    <Compile Include="Mvc\Models\SignUpModel.cs" />
     <Compile Include="Mvc\Models\SuccessStoriesModel.cs" />
     <Compile Include="Mvc\Models\VirtualVisitModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1317,7 +1400,18 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Content\ziplatlng.txt" />
+    <Content Include="Data\PatientModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PatientModel.edmx</DependentUpon>
+      <LastGenOutput>PatientModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\PatientModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PatientModel.edmx</DependentUpon>
+      <LastGenOutput>PatientModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -1412,6 +1506,18 @@
     <Content Include="Content\js\extensions\index.php" />
     <Content Include="Content\js\extensions\source\index.php" />
     <Content Include="packages.config" />
+    <Content Include="Mvc\Views\Shared\Layout.cshtml" />
+    <Content Include="Mvc\Views\SignUp\Default.cshtml" />
+    <EntityDeploy Include="Data\PatientModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PatientModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\PatientModel.edmx.diagram">
+      <DependentUpon>PatientModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Mvc\Views\Footer\Default.cshtml" />
+    <Content Include="Mvc\Views\Header\Default.cshtml" />
+    <Content Include="Mvc\Views\DebugMessage\Default.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1574,7 +1680,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Sitefinity\" />
-    <Folder Include="Mvc\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Data\GeoLocation\GeoLiteCity.dat" />

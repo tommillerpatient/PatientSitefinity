@@ -523,7 +523,7 @@ app.controller('demoCtrl', function ($scope, $http, personService) {
     };
 
     $scope.GoRegister = function () {
-        window.location.href = '/Account/SignUp';
+        window.location.href = '/sign-up';
     }
 
     $scope.ActivateAccount = function () {

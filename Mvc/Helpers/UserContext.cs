@@ -1,15 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 using System.Web;
-using Newtonsoft.Json.Linq;
+using SitefinityWebApp.Data;
 
 namespace SitefinityWebApp.Mvc.Helpers
 {
     public class UserContext
     {
+
+        public static bool Login(string email, string password)
+        {
+            var passkey = SecurityHelper.GetKey(string.Concat(email, password));
+            using (var model = new MasterPatientIndexDevEntities())
+            {
+                var user = model.People.SingleOrDefault(p => p.PasswordHash == passkey);
+                if (user != null)
+                {
+                    SetToken(user.SessionToken);
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        public static void Logout()
+        {
+            SetToken(null);
+            HttpContext.Current.Items[GlobalKeys.ContextKey] = null;
+        }
 
         public static string GetToken()
         {
@@ -19,7 +38,7 @@ namespace SitefinityWebApp.Mvc.Helpers
                 return cookie.Value;
             }
 
-            return String.Empty;
+            return string.Empty;
         }
 
         public static void SetToken(string token)
@@ -39,7 +58,24 @@ namespace SitefinityWebApp.Mvc.Helpers
                 if (context == null)
                 {
                     context = new UserContext();
-                    // to do init
+
+                    var token = GetToken();
+
+                    if (!string.IsNullOrEmpty(token))
+                    {
+                        using (var model = new MasterPatientIndexDevEntities())
+                        {
+                            var user = model.People.SingleOrDefault(p => p.SessionToken == token);
+                            if(user != null)
+                            {
+                                context.UserId = user.Id;
+                                context.UserEmail = user.Email;
+                                context.Roles = new HashSet<string>();
+                                context.Roles.Add(model.Roles.Single(r => r.RoleId == user.roleid).Type);
+                            }
+                        }
+                    }
+
                     HttpContext.Current.Items[GlobalKeys.ContextKey] = context;
                 }
                 return context;
@@ -51,14 +87,14 @@ namespace SitefinityWebApp.Mvc.Helpers
             return Current.Roles.Contains(role);
         }
 
-        public static bool IsAuthenticated => !String.IsNullOrEmpty(Current.UserName);
+        public static bool IsAuthenticated => !string.IsNullOrEmpty(Current.UserEmail);
 
         public static int CurrentUserId => Current.UserId;
 
 
         public int UserId { get; set; }
 
-        public string UserName { get; set; }
+        public string UserEmail { get; set; }
 
         public HashSet<string> Roles { get; set; }
     }

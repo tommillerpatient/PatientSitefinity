@@ -1,0 +1,970 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MasterPatientIndexDevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="AppointmentId" />
+          </Key>
+          <Property Name="AppointmentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppointmentDate" Type="datetime" />
+          <Property Name="AppointmentDesc" Type="nvarchar(max)" />
+          <Property Name="StaffId" Type="int" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="AppointmentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="AppointmentOn" Type="datetime" />
+          <Property Name="AttendId" Type="int" />
+        </EntityType>
+        <EntityType Name="ArticleContent">
+          <Key>
+            <PropertyRef Name="ContentId" />
+          </Key>
+          <Property Name="ContentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="TitleId" Type="int" />
+          <Property Name="SubTitleId" Type="int" Nullable="false" />
+          <Property Name="contentname" Type="nvarchar(max)" />
+          <Property Name="active" Type="bit" />
+        </EntityType>
+        <EntityType Name="ArticleSubTitle">
+          <Key>
+            <PropertyRef Name="SubtitleId" />
+          </Key>
+          <Property Name="SubtitleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubTitle" Type="nvarchar(max)" />
+          <Property Name="TitleId" Type="int" />
+        </EntityType>
+        <EntityType Name="ArticleTitle">
+          <Key>
+            <PropertyRef Name="TitleId" />
+          </Key>
+          <Property Name="TitleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ConfirmedEmail">
+          <Key>
+            <PropertyRef Name="ConfirmEmailId" />
+          </Key>
+          <Property Name="ConfirmEmailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonId" Type="int" />
+          <Property Name="GUId" Type="nvarchar(max)" />
+          <Property Name="RequestDate" Type="datetime" />
+          <Property Name="IsUsed" Type="bit" />
+        </EntityType>
+        <EntityType Name="HospitalEHRSystem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hosptial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="State" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="County" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ZipCode" Type="int" Nullable="false" />
+          <Property Name="HospitalIsClinic" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MailLog">
+          <Key>
+            <PropertyRef Name="Maillogid" />
+          </Key>
+          <Property Name="Maillogid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MailBody" Type="nvarchar(max)" />
+          <Property Name="EmailId" Type="nvarchar(max)" />
+          <Property Name="SentDate" Type="datetime" />
+          <Property Name="SentbyId" Type="int" />
+          <Property Name="Issent" Type="bit" />
+        </EntityType>
+        <EntityType Name="PasswordHistory">
+          <Key>
+            <PropertyRef Name="PasswordHistoryId" />
+          </Key>
+          <Property Name="PasswordHistoryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="PersonId" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SessionToken" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone1" Type="int" Nullable="false" />
+          <Property Name="Phone2" Type="int" />
+          <Property Name="Phone3" Type="int" />
+          <Property Name="PersonIsPatient" Type="int" Nullable="false" />
+          <Property Name="AcknowledgedNoticeOfPrivacy" Type="bit" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="ZipCode" Type="int" Nullable="false" />
+          <Property Name="State" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar(max)" />
+          <Property Name="Procedure" Type="nvarchar(max)" />
+          <Property Name="ProcedureDate" Type="datetime" />
+          <Property Name="InsuranceCompanyName" Type="nvarchar(max)" />
+          <Property Name="InsuranceEffectiveDate" Type="datetime" Nullable="false" />
+          <Property Name="Guarantor" Type="nvarchar(max)" />
+          <Property Name="GroupNumber" Type="nvarchar(max)" />
+          <Property Name="PolicyNumber" Type="nvarchar(max)" />
+          <Property Name="PreferredPharmacy" Type="nvarchar(max)" />
+          <Property Name="PharmacyPhone" Type="nvarchar(max)" />
+          <Property Name="PharmacyAddress1" Type="nvarchar(max)" />
+          <Property Name="PharmacyAddress2" Type="nvarchar(max)" />
+          <Property Name="PharmacyCity" Type="nvarchar(max)" />
+          <Property Name="PharmacyState" Type="nvarchar(max)" />
+          <Property Name="ConfirmedByEmail" Type="bit" />
+          <Property Name="address1" Type="nvarchar(max)" />
+          <Property Name="CareGiver" Type="int" />
+          <Property Name="active" Type="bit" />
+          <Property Name="profileimage" Type="nvarchar(max)" />
+          <Property Name="maritalstatus" Type="varchar" MaxLength="50" />
+          <Property Name="Weight" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="preferredcommunicationmobile" Type="bit" />
+          <Property Name="SocialNetworks" Type="nvarchar(max)" />
+          <Property Name="Language" Type="nvarchar(max)" />
+          <Property Name="country" Type="nvarchar(max)" />
+          <Property Name="relationship" Type="nvarchar(max)" />
+          <Property Name="roleid" Type="int" />
+          <Property Name="caregivercomment" Type="nvarchar(max)" />
+          <Property Name="preferredcommunicationemail" Type="bit" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="approuvedate" Type="datetime" />
+          <Property Name="blockcount" Type="int" />
+          <Property Name="atemptdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PersonToPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="CaregiverId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Physician">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LinkedToPhysicianAPI" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Seminar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar(max)" />
+          <Property Name="lastname" Type="nvarchar(max)" />
+          <Property Name="phone" Type="nvarchar(max)" />
+          <Property Name="seminardate" Type="datetime" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="seminarid" Type="int" />
+          <Property Name="active" Type="bit" />
+          <Property Name="isview" Type="bit" />
+          <Property Name="registerdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SeminarData">
+          <Key>
+            <PropertyRef Name="seminarid" />
+          </Key>
+          <Property Name="seminarid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="seminarname" Type="nvarchar(max)" />
+          <Property Name="seminardate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserProgress">
+          <Key>
+            <PropertyRef Name="ProgressId" />
+          </Key>
+          <Property Name="ProgressId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContentId" Type="int" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="Visit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonId" Type="int" Nullable="false" />
+          <Property Name="PhysicianId" Type="int" Nullable="false" />
+          <Property Name="HosptialId" Type="int" Nullable="false" />
+          <Property Name="HosptialEHRSystemId" Type="int" Nullable="false" />
+          <Property Name="DateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="PointerToSpecificEHRecord" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_PersonToPerson_PersonCaregiver">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="PersonToPerson" Type="Self.PersonToPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonToPerson">
+              <PropertyRef Name="CaregiverId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonToPerson_PersonPatient">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="PersonToPerson" Type="Self.PersonToPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonToPerson">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visit_HospitalEHRSystem">
+          <End Role="HospitalEHRSystem" Type="Self.HospitalEHRSystem" Multiplicity="1" />
+          <End Role="Visit" Type="Self.Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HospitalEHRSystem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Visit">
+              <PropertyRef Name="HosptialEHRSystemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visit_Hosptial">
+          <End Role="Hosptial" Type="Self.Hosptial" Multiplicity="1" />
+          <End Role="Visit" Type="Self.Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hosptial">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Visit">
+              <PropertyRef Name="HosptialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visit_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Visit" Type="Self.Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Visit">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visit_Physician">
+          <End Role="Physician" Type="Self.Physician" Multiplicity="1" />
+          <End Role="Visit" Type="Self.Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Physician">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Visit">
+              <PropertyRef Name="PhysicianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MasterPatientIndexDevModelStoreContainer">
+          <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArticleContent" EntityType="Self.ArticleContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArticleSubTitle" EntityType="Self.ArticleSubTitle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArticleTitle" EntityType="Self.ArticleTitle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfirmedEmail" EntityType="Self.ConfirmedEmail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HospitalEHRSystem" EntityType="Self.HospitalEHRSystem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hosptial" EntityType="Self.Hosptial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MailLog" EntityType="Self.MailLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PasswordHistory" EntityType="Self.PasswordHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonToPerson" EntityType="Self.PersonToPerson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Physician" EntityType="Self.Physician" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seminar" EntityType="Self.Seminar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeminarData" EntityType="Self.SeminarData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProgress" EntityType="Self.UserProgress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Visit" EntityType="Self.Visit" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_PersonToPerson_PersonCaregiver" Association="Self.FK_PersonToPerson_PersonCaregiver">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="PersonToPerson" EntitySet="PersonToPerson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonToPerson_PersonPatient" Association="Self.FK_PersonToPerson_PersonPatient">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="PersonToPerson" EntitySet="PersonToPerson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visit_HospitalEHRSystem" Association="Self.FK_Visit_HospitalEHRSystem">
+            <End Role="HospitalEHRSystem" EntitySet="HospitalEHRSystem" />
+            <End Role="Visit" EntitySet="Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visit_Hosptial" Association="Self.FK_Visit_Hosptial">
+            <End Role="Hosptial" EntitySet="Hosptial" />
+            <End Role="Visit" EntitySet="Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visit_Person" Association="Self.FK_Visit_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Visit" EntitySet="Visit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visit_Physician" Association="Self.FK_Visit_Physician">
+            <End Role="Physician" EntitySet="Physician" />
+            <End Role="Visit" EntitySet="Visit" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MasterPatientIndexDevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="AppointmentId" />
+          </Key>
+          <Property Name="AppointmentId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppointmentDate" Type="DateTime" Precision="3" />
+          <Property Name="AppointmentDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StaffId" Type="Int32" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="AppointmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="AppointmentOn" Type="DateTime" Precision="3" />
+          <Property Name="AttendId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ArticleContent">
+          <Key>
+            <PropertyRef Name="ContentId" />
+          </Key>
+          <Property Name="ContentId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TitleId" Type="Int32" />
+          <Property Name="SubTitleId" Type="Int32" Nullable="false" />
+          <Property Name="contentname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ArticleSubTitle">
+          <Key>
+            <PropertyRef Name="SubtitleId" />
+          </Key>
+          <Property Name="SubtitleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TitleId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ArticleTitle">
+          <Key>
+            <PropertyRef Name="TitleId" />
+          </Key>
+          <Property Name="TitleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ConfirmedEmail">
+          <Key>
+            <PropertyRef Name="ConfirmEmailId" />
+          </Key>
+          <Property Name="ConfirmEmailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonId" Type="Int32" />
+          <Property Name="GUId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RequestDate" Type="DateTime" Precision="3" />
+          <Property Name="IsUsed" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="HospitalEHRSystem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Visits" Relationship="Self.FK_Visit_HospitalEHRSystem" FromRole="HospitalEHRSystem" ToRole="Visit" />
+        </EntityType>
+        <EntityType Name="Hosptial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="County" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ZipCode" Type="Int32" Nullable="false" />
+          <Property Name="HospitalIsClinic" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Visits" Relationship="Self.FK_Visit_Hosptial" FromRole="Hosptial" ToRole="Visit" />
+        </EntityType>
+        <EntityType Name="MailLog">
+          <Key>
+            <PropertyRef Name="Maillogid" />
+          </Key>
+          <Property Name="Maillogid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MailBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SentDate" Type="DateTime" Precision="3" />
+          <Property Name="SentbyId" Type="Int32" />
+          <Property Name="Issent" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="PasswordHistory">
+          <Key>
+            <PropertyRef Name="PasswordHistoryId" />
+          </Key>
+          <Property Name="PasswordHistoryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonId" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SessionToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone1" Type="Int32" Nullable="false" />
+          <Property Name="Phone2" Type="Int32" />
+          <Property Name="Phone3" Type="Int32" />
+          <Property Name="PersonIsPatient" Type="Int32" Nullable="false" />
+          <Property Name="AcknowledgedNoticeOfPrivacy" Type="Boolean" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Procedure" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProcedureDate" Type="DateTime" Precision="3" />
+          <Property Name="InsuranceCompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InsuranceEffectiveDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Guarantor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GroupNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PolicyNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PreferredPharmacy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PharmacyPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PharmacyAddress1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PharmacyAddress2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PharmacyCity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PharmacyState" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirmedByEmail" Type="Boolean" />
+          <Property Name="address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CareGiver" Type="Int32" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="profileimage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="maritalstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="preferredcommunicationmobile" Type="Boolean" />
+          <Property Name="SocialNetworks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Language" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="relationship" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="roleid" Type="Int32" />
+          <Property Name="caregivercomment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="preferredcommunicationemail" Type="Boolean" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="approuvedate" Type="DateTime" Precision="3" />
+          <Property Name="blockcount" Type="Int32" />
+          <Property Name="atemptdate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PersonToPersons" Relationship="Self.FK_PersonToPerson_PersonCaregiver" FromRole="Person" ToRole="PersonToPerson" />
+          <NavigationProperty Name="PersonToPersons1" Relationship="Self.FK_PersonToPerson_PersonPatient" FromRole="Person" ToRole="PersonToPerson" />
+          <NavigationProperty Name="Visits" Relationship="Self.FK_Visit_Person" FromRole="Person" ToRole="Visit" />
+        </EntityType>
+        <EntityType Name="PersonToPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="CaregiverId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_PersonToPerson_PersonCaregiver" FromRole="PersonToPerson" ToRole="Person" />
+          <NavigationProperty Name="Person1" Relationship="Self.FK_PersonToPerson_PersonPatient" FromRole="PersonToPerson" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Physician">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LinkedToPhysicianAPI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Visits" Relationship="Self.FK_Visit_Physician" FromRole="Physician" ToRole="Visit" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Seminar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lastname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="seminardate" Type="DateTime" Precision="3" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="seminarid" Type="Int32" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="isview" Type="Boolean" />
+          <Property Name="registerdate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SeminarData">
+          <Key>
+            <PropertyRef Name="seminarid" />
+          </Key>
+          <Property Name="seminarid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="seminarname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="seminardate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserProgress">
+          <Key>
+            <PropertyRef Name="ProgressId" />
+          </Key>
+          <Property Name="ProgressId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContentId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Visit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonId" Type="Int32" Nullable="false" />
+          <Property Name="PhysicianId" Type="Int32" Nullable="false" />
+          <Property Name="HosptialId" Type="Int32" Nullable="false" />
+          <Property Name="HosptialEHRSystemId" Type="Int32" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="PointerToSpecificEHRecord" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HospitalEHRSystem" Relationship="Self.FK_Visit_HospitalEHRSystem" FromRole="Visit" ToRole="HospitalEHRSystem" />
+          <NavigationProperty Name="Hosptial" Relationship="Self.FK_Visit_Hosptial" FromRole="Visit" ToRole="Hosptial" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_Visit_Person" FromRole="Visit" ToRole="Person" />
+          <NavigationProperty Name="Physician" Relationship="Self.FK_Visit_Physician" FromRole="Visit" ToRole="Physician" />
+        </EntityType>
+        <Association Name="FK_Visit_HospitalEHRSystem">
+          <End Role="HospitalEHRSystem" Type="Self.HospitalEHRSystem" Multiplicity="1" />
+          <End Role="Visit" Type="Self.Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HospitalEHRSystem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Visit">
+              <PropertyRef Name="HosptialEHRSystemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visit_Hosptial">
+          <End Role="Hosptial" Type="Self.Hosptial" Multiplicity="1" />
+          <End Role="Visit" Type="Self.Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hosptial">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Visit">
+              <PropertyRef Name="HosptialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonToPerson_PersonCaregiver">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="PersonToPerson" Type="Self.PersonToPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonToPerson">
+              <PropertyRef Name="CaregiverId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonToPerson_PersonPatient">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="PersonToPerson" Type="Self.PersonToPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonToPerson">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visit_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Visit" Type="Self.Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Visit">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Visit_Physician">
+          <End Role="Physician" Type="Self.Physician" Multiplicity="1" />
+          <End Role="Visit" Type="Self.Visit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Physician">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Visit">
+              <PropertyRef Name="PhysicianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MasterPatientIndexDevEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Appointments" EntityType="Self.Appointment" />
+          <EntitySet Name="ArticleContents" EntityType="Self.ArticleContent" />
+          <EntitySet Name="ArticleSubTitles" EntityType="Self.ArticleSubTitle" />
+          <EntitySet Name="ArticleTitles" EntityType="Self.ArticleTitle" />
+          <EntitySet Name="ConfirmedEmails" EntityType="Self.ConfirmedEmail" />
+          <EntitySet Name="HospitalEHRSystems" EntityType="Self.HospitalEHRSystem" />
+          <EntitySet Name="Hosptials" EntityType="Self.Hosptial" />
+          <EntitySet Name="MailLogs" EntityType="Self.MailLog" />
+          <EntitySet Name="PasswordHistories" EntityType="Self.PasswordHistory" />
+          <EntitySet Name="People" EntityType="Self.Person" />
+          <EntitySet Name="PersonToPersons" EntityType="Self.PersonToPerson" />
+          <EntitySet Name="Physicians" EntityType="Self.Physician" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Seminars" EntityType="Self.Seminar" />
+          <EntitySet Name="SeminarDatas" EntityType="Self.SeminarData" />
+          <EntitySet Name="Staffs" EntityType="Self.Staff" />
+          <EntitySet Name="UserProgresses" EntityType="Self.UserProgress" />
+          <EntitySet Name="Visits" EntityType="Self.Visit" />
+          <AssociationSet Name="FK_Visit_HospitalEHRSystem" Association="Self.FK_Visit_HospitalEHRSystem">
+            <End Role="HospitalEHRSystem" EntitySet="HospitalEHRSystems" />
+            <End Role="Visit" EntitySet="Visits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visit_Hosptial" Association="Self.FK_Visit_Hosptial">
+            <End Role="Hosptial" EntitySet="Hosptials" />
+            <End Role="Visit" EntitySet="Visits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonToPerson_PersonCaregiver" Association="Self.FK_PersonToPerson_PersonCaregiver">
+            <End Role="Person" EntitySet="People" />
+            <End Role="PersonToPerson" EntitySet="PersonToPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonToPerson_PersonPatient" Association="Self.FK_PersonToPerson_PersonPatient">
+            <End Role="Person" EntitySet="People" />
+            <End Role="PersonToPerson" EntitySet="PersonToPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visit_Person" Association="Self.FK_Visit_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Visit" EntitySet="Visits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Visit_Physician" Association="Self.FK_Visit_Physician">
+            <End Role="Physician" EntitySet="Physicians" />
+            <End Role="Visit" EntitySet="Visits" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MasterPatientIndexDevModelStoreContainer" CdmEntityContainer="MasterPatientIndexDevEntities">
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
+                <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+                <ScalarProperty Name="AppointmentDesc" ColumnName="AppointmentDesc" />
+                <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="AppointmentName" ColumnName="AppointmentName" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="AppointmentOn" ColumnName="AppointmentOn" />
+                <ScalarProperty Name="AttendId" ColumnName="AttendId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArticleContents">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.ArticleContent">
+              <MappingFragment StoreEntitySet="ArticleContent">
+                <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+                <ScalarProperty Name="SubTitleId" ColumnName="SubTitleId" />
+                <ScalarProperty Name="contentname" ColumnName="contentname" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArticleSubTitles">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.ArticleSubTitle">
+              <MappingFragment StoreEntitySet="ArticleSubTitle">
+                <ScalarProperty Name="SubtitleId" ColumnName="SubtitleId" />
+                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArticleTitles">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.ArticleTitle">
+              <MappingFragment StoreEntitySet="ArticleTitle">
+                <ScalarProperty Name="TitleId" ColumnName="TitleId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConfirmedEmails">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.ConfirmedEmail">
+              <MappingFragment StoreEntitySet="ConfirmedEmail">
+                <ScalarProperty Name="ConfirmEmailId" ColumnName="ConfirmEmailId" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="GUId" ColumnName="GUId" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HospitalEHRSystems">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.HospitalEHRSystem">
+              <MappingFragment StoreEntitySet="HospitalEHRSystem">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hosptials">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.Hosptial">
+              <MappingFragment StoreEntitySet="Hosptial">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="HospitalIsClinic" ColumnName="HospitalIsClinic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MailLogs">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.MailLog">
+              <MappingFragment StoreEntitySet="MailLog">
+                <ScalarProperty Name="Maillogid" ColumnName="Maillogid" />
+                <ScalarProperty Name="MailBody" ColumnName="MailBody" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="SentbyId" ColumnName="SentbyId" />
+                <ScalarProperty Name="Issent" ColumnName="Issent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PasswordHistories">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.PasswordHistory">
+              <MappingFragment StoreEntitySet="PasswordHistory">
+                <ScalarProperty Name="PasswordHistoryId" ColumnName="PasswordHistoryId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SessionToken" ColumnName="SessionToken" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Phone3" ColumnName="Phone3" />
+                <ScalarProperty Name="PersonIsPatient" ColumnName="PersonIsPatient" />
+                <ScalarProperty Name="AcknowledgedNoticeOfPrivacy" ColumnName="AcknowledgedNoticeOfPrivacy" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Procedure" ColumnName="Procedure" />
+                <ScalarProperty Name="ProcedureDate" ColumnName="ProcedureDate" />
+                <ScalarProperty Name="InsuranceCompanyName" ColumnName="InsuranceCompanyName" />
+                <ScalarProperty Name="InsuranceEffectiveDate" ColumnName="InsuranceEffectiveDate" />
+                <ScalarProperty Name="Guarantor" ColumnName="Guarantor" />
+                <ScalarProperty Name="GroupNumber" ColumnName="GroupNumber" />
+                <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+                <ScalarProperty Name="PreferredPharmacy" ColumnName="PreferredPharmacy" />
+                <ScalarProperty Name="PharmacyPhone" ColumnName="PharmacyPhone" />
+                <ScalarProperty Name="PharmacyAddress1" ColumnName="PharmacyAddress1" />
+                <ScalarProperty Name="PharmacyAddress2" ColumnName="PharmacyAddress2" />
+                <ScalarProperty Name="PharmacyCity" ColumnName="PharmacyCity" />
+                <ScalarProperty Name="PharmacyState" ColumnName="PharmacyState" />
+                <ScalarProperty Name="ConfirmedByEmail" ColumnName="ConfirmedByEmail" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="CareGiver" ColumnName="CareGiver" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="profileimage" ColumnName="profileimage" />
+                <ScalarProperty Name="maritalstatus" ColumnName="maritalstatus" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="preferredcommunicationmobile" ColumnName="preferredcommunicationmobile" />
+                <ScalarProperty Name="SocialNetworks" ColumnName="SocialNetworks" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="relationship" ColumnName="relationship" />
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
+                <ScalarProperty Name="caregivercomment" ColumnName="caregivercomment" />
+                <ScalarProperty Name="preferredcommunicationemail" ColumnName="preferredcommunicationemail" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="approuvedate" ColumnName="approuvedate" />
+                <ScalarProperty Name="blockcount" ColumnName="blockcount" />
+                <ScalarProperty Name="atemptdate" ColumnName="atemptdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonToPersons">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.PersonToPerson">
+              <MappingFragment StoreEntitySet="PersonToPerson">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="CaregiverId" ColumnName="CaregiverId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Physicians">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.Physician">
+              <MappingFragment StoreEntitySet="Physician">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LinkedToPhysicianAPI" ColumnName="LinkedToPhysicianAPI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seminars">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.Seminar">
+              <MappingFragment StoreEntitySet="Seminar">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="seminardate" ColumnName="seminardate" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="seminarid" ColumnName="seminarid" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="isview" ColumnName="isview" />
+                <ScalarProperty Name="registerdate" ColumnName="registerdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeminarDatas">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.SeminarData">
+              <MappingFragment StoreEntitySet="SeminarData">
+                <ScalarProperty Name="seminarid" ColumnName="seminarid" />
+                <ScalarProperty Name="seminarname" ColumnName="seminarname" />
+                <ScalarProperty Name="seminardate" ColumnName="seminardate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProgresses">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.UserProgress">
+              <MappingFragment StoreEntitySet="UserProgress">
+                <ScalarProperty Name="ProgressId" ColumnName="ProgressId" />
+                <ScalarProperty Name="ContentId" ColumnName="ContentId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visits">
+            <EntityTypeMapping TypeName="MasterPatientIndexDevModel.Visit">
+              <MappingFragment StoreEntitySet="Visit">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="PhysicianId" ColumnName="PhysicianId" />
+                <ScalarProperty Name="HosptialId" ColumnName="HosptialId" />
+                <ScalarProperty Name="HosptialEHRSystemId" ColumnName="HosptialEHRSystemId" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="PointerToSpecificEHRecord" ColumnName="PointerToSpecificEHRecord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
