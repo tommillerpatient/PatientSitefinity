@@ -3,35 +3,18 @@ using System.ComponentModel;
 using System.Linq;
 using System.Web.Mvc;
 using Telerik.Sitefinity.Mvc;
-using SitefinityWebApp.Mvc.Models;
 
 namespace SitefinityWebApp.Mvc.Controllers
 {
-    [ControllerToolboxItem(Name = "AboutUs", Title = "AboutUs", SectionName = "MvcWidgets")]
+    [ControllerToolboxItem(Name = "AboutUs", Title = "About Us", SectionName = "PageWidgets")]
     public class AboutUsController : Controller
     {
-        /// <summary>
-        /// Gets or sets the message.
-        /// </summary>
-        [Category("String Properties")]
-        public string Message { get; set; }
-
         /// <summary>
         /// This is the default Action.
         /// </summary>
         public ActionResult Index()
         {
-            var model = new AboutUsModel();
-            if (string.IsNullOrEmpty(this.Message))
-            {
-                model.Message = "AboutUs";
-            }
-            else
-            {
-                model.Message = this.Message;
-            }
-
-            return View("Default", model);
+            return View("Default");
         }
     }
 }

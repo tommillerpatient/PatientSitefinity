@@ -6,8 +6,8 @@ using Telerik.Sitefinity.Mvc;
 
 namespace SitefinityWebApp.Mvc.Controllers
 {
-    [ControllerToolboxItem(Name = "HealthLibrary", Title = "Health Library", SectionName = "PageWidgets")]
-    public class HealthLibraryController : Controller
+    [ControllerToolboxItem(Name = "WeightLoss", Title = "Weight Loss", SectionName = "LayoutWidgets")]
+    public class WeightLossController : Controller
     {
         /// <summary>
         /// This is the default Action.

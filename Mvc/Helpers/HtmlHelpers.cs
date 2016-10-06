@@ -3,34 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Telerik.Sitefinity.Web;
 
 namespace SitefinityWebApp.Mvc.Helpers
 {
     public static class HtmlHelpers
     {
 
-        public static string IsSelected(this HtmlHelper html, string controller = null, string action = null, string cssClass = null)
+        public static string IsSelected(this HtmlHelper html, string url, string cssClass = null)
         {
             if (String.IsNullOrEmpty(cssClass))
                 cssClass = "active";
 
-            string currentAction = (string)html.ViewContext.RouteData.Values["action"];
-            string currentController = (string)html.ViewContext.RouteData.Values["controller"];
+            var currentNode = SiteMapBase.GetActualCurrentNode();
 
-            if (String.IsNullOrEmpty(controller))
-                controller = currentController;
-
-            if (String.IsNullOrEmpty(action))
-                action = currentAction;
-
-            return controller == currentController && action == currentAction ?
-                cssClass : String.Empty;
-        }
-
-        public static string PageClass(this HtmlHelper htmlHelper)
-        {
-            string currentAction = (string)htmlHelper.ViewContext.RouteData.Values["action"];
-            return currentAction;
+            return currentNode.UrlName == url ?  cssClass : String.Empty;
         }
 
 

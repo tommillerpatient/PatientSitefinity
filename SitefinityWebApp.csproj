@@ -1039,6 +1039,7 @@
     <Compile Include="Mvc\Controllers\CommunityController.cs" />
     <Compile Include="Mvc\Controllers\ContactPhysicianController.cs" />
     <Compile Include="Mvc\Controllers\DebugMessageController.cs" />
+    <Compile Include="Mvc\Controllers\FeedbackController.cs" />
     <Compile Include="Mvc\Controllers\FooterController.cs" />
     <Compile Include="Mvc\Controllers\HeaderController.cs" />
     <Compile Include="Mvc\Controllers\HealthLibraryController.cs" />
@@ -1046,22 +1047,13 @@
     <Compile Include="Mvc\Controllers\SignUpController.cs" />
     <Compile Include="Mvc\Controllers\SuccessStoriesController.cs" />
     <Compile Include="Mvc\Controllers\VirtualVisitController.cs" />
+    <Compile Include="Mvc\Controllers\WeightLossController.cs" />
     <Compile Include="Mvc\Helpers\AesHelper.cs" />
     <Compile Include="Mvc\Helpers\DebugHelper.cs" />
     <Compile Include="Mvc\Helpers\GlobalKeys.cs" />
     <Compile Include="Mvc\Helpers\HtmlHelpers.cs" />
     <Compile Include="Mvc\Helpers\SecurityHelper.cs" />
     <Compile Include="Mvc\Helpers\UserContext.cs" />
-    <Compile Include="Mvc\Models\AboutUsModel.cs" />
-    <Compile Include="Mvc\Models\CommunityModel.cs" />
-    <Compile Include="Mvc\Models\ContactPhysicianModel.cs" />
-    <Compile Include="Mvc\Models\FooterModel.cs" />
-    <Compile Include="Mvc\Models\HeaderModel.cs" />
-    <Compile Include="Mvc\Models\HealthLibraryModel.cs" />
-    <Compile Include="Mvc\Models\HomeModel.cs" />
-    <Compile Include="Mvc\Models\SignUpModel.cs" />
-    <Compile Include="Mvc\Models\SuccessStoriesModel.cs" />
-    <Compile Include="Mvc\Models\VirtualVisitModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1518,6 +1510,8 @@
     <Content Include="Mvc\Views\Footer\Default.cshtml" />
     <Content Include="Mvc\Views\Header\Default.cshtml" />
     <Content Include="Mvc\Views\DebugMessage\Default.cshtml" />
+    <Content Include="Mvc\Views\WeightLoss\Default.cshtml" />
+    <Content Include="Mvc\Views\Feedback\Default.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1680,6 +1674,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Sitefinity\" />
+    <Folder Include="Mvc\Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Data\GeoLocation\GeoLiteCity.dat" />

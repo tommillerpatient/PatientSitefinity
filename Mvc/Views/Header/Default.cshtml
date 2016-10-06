@@ -1,23 +1,4 @@
 @using SitefinityWebApp.Mvc.Helpers
-@model SitefinityWebApp.Mvc.Models.HeaderModel
-
-<link rel="shortcut icon" href="~/Content/assets/images/favicon.ico">
-<link href="~/Content/fonts/font-awesome-4.6.3/font-awesome-4.6.3/css/font-awesome.css" rel="stylesheet" />
-<link href="~/Content/css/bootstrap_datepicker.css" rel="stylesheet" />
-<link href="~/Content/assets/css/bootstrap.min.css" rel="stylesheet">
-<link href="~/Content/assets/css/custome.css" rel="stylesheet">
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Content/js/bootstrap_datepicker.js"></script>
-<script src="~/Scripts/bootstrap.min.js"></script>
-<script>
-
-        $(document).ready(function () {
-            $(".dropbtn").click(function () {
-                $(".dropdown-content").toggleClass("hidden unhidden");
-            });
-        });
-
-</script>
 
 <style>
     #loading {
@@ -42,8 +23,15 @@
     }
 </style>
 
+<script>
 
+        $(document).ready(function () {
+            $(".dropbtn").click(function () {
+                $(".dropdown-content").toggleClass("hidden unhidden");
+            });
+        });
 
+</script>
 
 <div ng-controller="demoCtrl">
     <div class="container">
@@ -55,7 +43,7 @@
                 <div class="dropdown3">
                     <i class="fa fa-uaer"></i>
                     <a class="dropbtn">
-                        @if (!string.IsNullOrEmpty(Convert.ToString(Session["userid"])))
+                        @if (UserContext.IsAuthenticated)
                         {
                             <span>My Account</span>
                         }
@@ -70,17 +58,11 @@
 
                             <div class="login-div text-center" id="logdiv">
 
-                                @if (!string.IsNullOrEmpty(Convert.ToString(Session["userid"])))
+                                @if (UserContext.IsAuthenticated)
                                 {
-
                                     <a href="/Account/SignOut">
                                         Logout
                                     </a>
-                                    <script>
-
-                                            $('#logdiv').removeClass("login-div text-center");
-                                            $('#dropdiv').css('min-width', '121px');
-                                    </script>
                                 }
                                 else
                                 {
@@ -91,7 +73,7 @@
                                         <i class="fa fa-user"></i>
                                     </div>
 
-                                        <label class="control-label label2"></label><input type="text" class="form-control" style="height: 30px;margin-bottom: 10px;font-size: 12px;" ng-model="person.Email" placeholder="Email" />
+                                    <label class="control-label label2"></label><input type="text" class="form-control" style="height: 30px;margin-bottom: 10px;font-size: 12px;" ng-model="person.Email" placeholder="Email" />
                                         <label class="control-label label2"></label><input type="password" class="form-control" style="height: 30px;margin-bottom: 10px;font-size: 12px;" ng-model="person.PasswordHash" placeholder="Password" />
 
 
@@ -99,7 +81,7 @@
                                 }
                             </div>
                         </li>
-                        @if (!string.IsNullOrEmpty(Convert.ToString(Session["userid"])))
+                        @if (UserContext.IsAuthenticated)
                         {
 
 
@@ -157,13 +139,13 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="@Html.IsSelected("Home")"><a href="~/">Home <span class="sr-only">(current)</span></a></li>
-                        <li class="@Html.IsSelected("HealthLibrary")"><a href="~/health-library">Health Library</a></li>
-                        <li class="@Html.IsSelected("Community")"><a href="~/community">Community</a></li>
+                        <li class="@Html.IsSelected("home")"><a href="~/home">Home</a></li>
+                        <li class="@Html.IsSelected("health-library")"><a href="~/health-library">Health Library</a></li>
+                        <li class="@Html.IsSelected("community")"><a href="~/community">Community</a></li>
                         <li><a href="http://virtualvisitwebapp-qa.azurewebsites.net/">Virtual Visit</a></li>
-                        <li class="@Html.IsSelected("SuccessStories")"><a href="~/success-stories">Success Stories</a></li>
-                        <li class="@Html.IsSelected("AboutUs")"><a href="~/about-us">About Us</a></li>
-                        <li class="@Html.IsSelected("ContactPhysician")"><a href="~/contact-physician">Contact Physician</a></li>
+                        <li class="@Html.IsSelected("success-stories")"><a href="~/success-stories">Success Stories</a></li>
+                        <li class="@Html.IsSelected("about-us")"><a href="~/about-us">About Us</a></li>
+                        <li class="@Html.IsSelected("contact-physician")"><a href="~/contact-physician">Contact Physician</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

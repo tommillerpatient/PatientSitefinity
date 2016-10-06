@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Web.Mvc;
 using Telerik.Sitefinity.Mvc;
-using SitefinityWebApp.Mvc.Models;
 using SitefinityWebApp.Mvc.Helpers;
 
 namespace SitefinityWebApp.Mvc.Controllers
