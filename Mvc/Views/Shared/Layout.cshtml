@@ -2,10 +2,9 @@
 
 <link href="~/Mvc/Content/widgets/shared/css/style.css" rel="stylesheet" />
 <script src="~/Mvc/Content/widgets/shared/js/helper.js"></script>
-<script src="~/Mvc/Content/js/app.js"></script>
 <script src="~/Mvc/Content/widgets/shared/js/headerCtrl.js"></script>
 
-<div ng-app="app">
+<div >
 
     <div class="container" ng-controller="headerCtrl">
         <div class="topbar">
@@ -47,7 +46,7 @@
                         else
                         {
                             <li>
-                                <form class="login-form" name="loginForm">
+                                <form class="login-form" name="loginForm" >
                                     <div class="login-div text-center" id="logdiv">
                                         <div class="" ng-show="person.error" id="diverror" style="display: none; font-size: 11px; color: rgb(225, 62, 62); margin-bottom: 5px;">
                                             <span ng-bind-html="person.MessageError"></span>
@@ -59,7 +58,7 @@
                                         <input type="text" class="form-control" style="height: 30px; margin-bottom: 10px; font-size: 12px;" ng-model="person.email" placeholder="Email" />
                                         <input type="password" class="form-control" style="height: 30px; margin-bottom: 10px; font-size: 12px;" ng-model="person.password" placeholder="Password" />
 
-                                        <input type="submit" class="btn btn-block btn-primary" name="login" id="loginbtn1" value="Login" ng-click="login()" />
+                                        <input type="button" class="btn btn-block btn-primary" name="login" id="loginbtn1" value="Login" ng-click="login()"/>
                                     </div>
                                 </form>
                             </li>

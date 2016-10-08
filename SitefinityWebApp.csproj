@@ -1059,6 +1059,30 @@
     <Compile Include="WidgetDesigners\Authorization\AuthorizationDesigner.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Global\cssLoadOrder.xml" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Global\Layout.css" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Global\Reset.css" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\blank.gif" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\classic-loader.gif" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\classic-map.png" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\fancybox-x.png" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\fancybox-y.png" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\fancybox.png" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\fancy_title_over.png" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\sfArrows.gif" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\sfBigStatusIcons.png" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\sfEcommerce.gif" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\sfFileExtensions.gif" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\sfFileExtensionsSml.gif" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\sfForums.gif" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\sfIcons.gif" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\sfLoadingData.gif" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\sfPublicContent.gif" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Styles\events.widget.css" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Styles\fancybox.css" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Styles\galleria.classic.css" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Styles\icons.css" />
+    <Content Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Styles\nav.widget.css" />
     <Content Include="ClientBin\Telerik.Sitefinity.Analytics.xap" />
     <Content Include="ClientBin\Telerik.Sitefinity.Silverlight.xap" />
     <Content Include="Content\ajax\team-detail-1.html" />
@@ -1779,9 +1803,8 @@
     <Content Include="App_Data\RadSpell\fr-FR.tdf" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Global\" />
-    <Folder Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\" />
-    <Folder Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Styles\" />
+    <Folder Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Global\Global\" />
+    <Folder Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\Images\" />
     <Folder Include="Mvc\Content\img\" />
     <Folder Include="Mvc\Content\widgets\home\img\" />
     <Folder Include="Mvc\Content\widgets\shared\img\" />
