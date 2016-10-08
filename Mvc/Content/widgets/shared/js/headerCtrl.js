@@ -1,5 +1,4 @@
-﻿angular.module('headerApp', [])
-    .controller('headerCtrl', ['$scope', '$http', function ($scope, $http) {
+﻿app.controller('headerCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.person = {};
 

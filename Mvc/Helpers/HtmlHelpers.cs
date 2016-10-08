@@ -15,7 +15,7 @@ namespace SitefinityWebApp.Mvc.Helpers
 
             var currentNode = SiteMapBase.GetActualCurrentNode();
 
-            return currentNode.UrlName == url ?  cssClass : String.Empty;
+            return url.Contains(currentNode.UrlName) ?  cssClass : string.Empty;
         }
     }
 }

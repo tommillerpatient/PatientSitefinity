@@ -1,24 +1,13 @@
-﻿
-<script src="~/Scripts/angular.js"></script>
-<script src="~/Scripts/PersonCareGiver.js"></script>
-<script src="~/Scripts/angular-sanitize.js"></script>
-<style>
-    .progress-bar-custom {
-        background-color: rgb(13, 21, 111);
-        padding-right: 0px !important;
-        padding-left: 5px !important;
-        /* padding-top: 3px; */
-        /* padding-bottom: 3px; */
-        /* height: 22px; */
-        border-radius: 20px;
-        margin-left: 5px;
-    }
-</style>
+@{
+    Layout = "~/Mvc/Views/Shared/Layout.cshtml";
+}
 
-<div class="page-wrapper" ng-app="demoModule">
-    <div ng-controller="demoCtrl">
+<link href="~/Mvc/Content/widgets/home/css/welcome.css" rel="stylesheet" />
+<script src="~/Mvc/Content/widgets/home/js/welcomeCtrl.js"></script>
+
+<div class="page-wrapper" ng-controller="welcomeCtrl">
+    <div>
         <!-- Page Conetnt Start -->
-
         <div id="dialog_CareGiver" title="Someone to support your journey" style="display:none;">
             <div class="addedit-box">
                 <br />
@@ -116,7 +105,45 @@
 
                     <div class="col-sm-8 col-xs-12 pull-left">
 
-                        @* here was menu*@
+                        @if (!string.IsNullOrEmpty(Convert.ToString(Session["usernamesignup"])))
+                        {
+                            <div class="alert alert-success" style="margin:13px;">
+                                <strong></strong><span>@Convert.ToString(Session["usernamesignup"]) Your profile has been successfully created.</span>
+                            </div>
+                        }
+                        @if (ViewBag.Activated != null)
+                        {
+                            <div class="alert alert-success" style="margin:13px;">
+                                <strong></strong><span>Your account has been activated successfully.</span>
+                            </div>
+                        }
+                        @if (!string.IsNullOrEmpty(Convert.ToString(Session["UpdateUSer"])))
+                        {
+                            <div class="alert alert-success" style="margin:13px;">
+                                <strong></strong><span>Your profile has been successfully updated.</span>
+                            </div>
+                        }
+                        @if (!string.IsNullOrEmpty(Convert.ToString(Session["ChangePassword"])))
+                        {
+                            <div class="alert alert-success" style="margin:13px;">
+                                <strong></strong><span>Your password has been successfully changed.</span>
+                            </div>
+                        }
+                        @if (!string.IsNullOrEmpty(Convert.ToString(Request["cg"])))
+                        {
+                            <div class="alert alert-success" style="margin:13px;">
+                                <strong></strong><span>Your account has been successfully created.</span>
+                            </div>
+                        }
+                        @if (!string.IsNullOrEmpty(Convert.ToString(Request["msg"])))
+                        {
+                            if (Convert.ToString(Request["msg"]) == "CareGiver")
+                            {
+                                <div class="alert alert-success" style="margin:13px;">
+                                    <strong></strong><span>Email sent successfully.</span>
+                                </div>
+                            }
+                        }
 
                         <h1 class="text-left">
                             You're doing a <span>Great Job!</span><br>
@@ -149,7 +176,6 @@
                                     <button type="submit" class="btn  btn-block btn-primary">Message Physician</button>
                                     <button type="submit" class="btn btn-block btn-default">Required Documents</button>
                                 </div>
-                                </p>
                             </div>
                         </div>
                         <div class="event">
@@ -172,14 +198,14 @@
                     <div class="bgshadow"><img src="~/Content/assets/images/boxshadow.png" alt=""></div>
                 </div>
 
-               
+
             </div>
             <!-- Page Conetnt End -->
 
         </div>
         <!-- location Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal1 fade1" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog1  modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <div class="searchbg">
@@ -261,15 +287,9 @@
         </div>
     </div>
 </div>
-<!-- jQuery Library -->
-<script src="~/Content/assets/js/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="~/Content/assets/js/bootstrap.min.js"></script>
-
 
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 <script>

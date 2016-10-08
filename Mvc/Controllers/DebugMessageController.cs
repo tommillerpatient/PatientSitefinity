@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Telerik.Sitefinity.Mvc;
 using SitefinityWebApp.Mvc.Helpers;
+using SitefinityWebApp.Mvc.Models;
 
 namespace SitefinityWebApp.Mvc.Controllers
 {
@@ -15,8 +16,10 @@ namespace SitefinityWebApp.Mvc.Controllers
         /// </summary>
         public ActionResult Index()
         {
-            ViewBag.DebugMessage = DebugHelper.GetMessage();
-            return View("Default");
+            return View("Default", new DebugMessageModel
+            {
+                Message = DebugHelper.GetMessage()
+            });
         }
     }
 }

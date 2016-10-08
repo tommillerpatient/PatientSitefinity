@@ -1,5 +1,4 @@
-﻿angular.module('signInApp', [])
-    .controller('signInCtrl', ['$scope', '$http', function ($scope, $http) {
+﻿app.controller('welcomeCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.person = {};
 

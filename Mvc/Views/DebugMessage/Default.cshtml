@@ -1,4 +1,6 @@
-@if (!string.IsNullOrEmpty(ViewBag.DebugMessage))
+@model SitefinityWebApp.Mvc.Models.DebugMessageModel
+
+@if (!string.IsNullOrEmpty(Model.Message))
 {
-    @Html.Raw(ViewBag.DebugMessage)
+    @Html.Raw(Model.Message)
 }

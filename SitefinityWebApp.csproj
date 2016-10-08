@@ -1037,25 +1037,26 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mvc\Controllers\AboutUsController.cs" />
+    <Compile Include="Mvc\Controllers\AuthorizationController.cs" />
     <Compile Include="Mvc\Controllers\CommunityController.cs" />
     <Compile Include="Mvc\Controllers\ContactPhysicianController.cs" />
     <Compile Include="Mvc\Controllers\DebugMessageController.cs" />
-    <Compile Include="Mvc\Controllers\FeedbackController.cs" />
-    <Compile Include="Mvc\Controllers\FooterController.cs" />
-    <Compile Include="Mvc\Controllers\HeaderController.cs" />
     <Compile Include="Mvc\Controllers\HealthLibraryController.cs" />
-    <Compile Include="Mvc\Controllers\HomeController.cs" />
+    <Compile Include="Mvc\Controllers\SignInController.cs" />
     <Compile Include="Mvc\Controllers\SignUpController.cs" />
     <Compile Include="Mvc\Controllers\SuccessStoriesController.cs" />
     <Compile Include="Mvc\Controllers\VirtualVisitController.cs" />
-    <Compile Include="Mvc\Controllers\WeightLossController.cs" />
+    <Compile Include="Mvc\Controllers\WelcomeController.cs" />
     <Compile Include="Mvc\Helpers\AesHelper.cs" />
     <Compile Include="Mvc\Helpers\DebugHelper.cs" />
     <Compile Include="Mvc\Helpers\GlobalKeys.cs" />
     <Compile Include="Mvc\Helpers\HtmlHelpers.cs" />
     <Compile Include="Mvc\Helpers\SecurityHelper.cs" />
     <Compile Include="Mvc\Helpers\UserContext.cs" />
+    <Compile Include="Mvc\Models\AuthorizationModel.cs" />
+    <Compile Include="Mvc\Models\DebugMessageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WidgetDesigners\Authorization\AuthorizationDesigner.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientBin\Telerik.Sitefinity.Analytics.xap" />
@@ -1419,6 +1420,7 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="Mvc\Content\css\custome.css" />
+    <Content Include="Mvc\Content\js\app.js" />
     <Content Include="Mvc\Content\vendor\angular\angular-animate.js" />
     <Content Include="Mvc\Content\vendor\angular\angular-animate.min.js" />
     <Content Include="Mvc\Content\vendor\angular\angular-aria.js" />
@@ -1455,10 +1457,12 @@
     <Content Include="Mvc\Content\vendor\bootstrap\js\bootstrap.js" />
     <Content Include="Mvc\Content\vendor\bootstrap\js\bootstrap.min.js" />
     <Content Include="Mvc\Content\vendor\jquery\jquery-3.1.1.min.js" />
-    <Content Include="Mvc\Content\widgets\header\css\style.css" />
-    <Content Include="Mvc\Content\widgets\header\js\headerApp.js" />
-    <Content Include="Mvc\Content\widgets\header\js\helper.js" />
-    <Content Include="Mvc\Content\widgets\home\js\signInApp.js" />
+    <Content Include="Mvc\Content\widgets\home\css\welcome.css" />
+    <Content Include="Mvc\Content\widgets\home\js\welcomeCtrl.js" />
+    <Content Include="Mvc\Content\widgets\shared\css\style.css" />
+    <Content Include="Mvc\Content\widgets\shared\js\headerCtrl.js" />
+    <Content Include="Mvc\Content\widgets\shared\js\helper.js" />
+    <Content Include="Mvc\Content\widgets\home\js\signInCtrl.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-sanitize.js" />
     <Content Include="Scripts\angular.js" />
@@ -1549,11 +1553,7 @@
     <Content Include="Data\PatientModel.edmx.diagram">
       <DependentUpon>PatientModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Mvc\Views\Footer\Default.cshtml" />
-    <Content Include="Mvc\Views\Header\Default.cshtml" />
     <Content Include="Mvc\Views\DebugMessage\Default.cshtml" />
-    <Content Include="Mvc\Views\WeightLoss\Default.cshtml" />
-    <Content Include="Mvc\Views\Feedback\Default.cshtml" />
     <Content Include="Mvc\Content\vendor\bootstrap\config.json" />
     <Content Include="Mvc\Content\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Mvc\Content\vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
@@ -1573,6 +1573,11 @@
     <Content Include="Mvc\Content\vendor\angular\angular.min.js.map" />
     <Content Include="Mvc\Content\vendor\angular\errors.json" />
     <Content Include="Mvc\Content\vendor\angular\version.json" />
+    <Content Include="Mvc\Views\SignIn\Default.cshtml" />
+    <Content Include="Mvc\Views\Welcome\Default.cshtml" />
+    <Content Include="Mvc\Views\Authorization\Default.cshtml" />
+    <Content Include="Mvc\Views\Authorization\Empty.cshtml" />
+    <Content Include="Mvc\Views\Shared\JourneyLayout.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1726,6 +1731,8 @@
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="WidgetDesigners\Authorization\AuthorizationDesigner.ascx" />
+    <Content Include="WidgetDesigners\Authorization\AuthorizationDesigner.js" />
     <Content Include="wlwmanifest.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -1736,11 +1743,8 @@
   <ItemGroup>
     <Folder Include="App_Data\Sitefinity\" />
     <Folder Include="Mvc\Content\img\" />
-    <Folder Include="Mvc\Content\js\" />
-    <Folder Include="Mvc\Content\widgets\header\img\" />
-    <Folder Include="Mvc\Content\widgets\home\css\" />
     <Folder Include="Mvc\Content\widgets\home\img\" />
-    <Folder Include="Mvc\Models\" />
+    <Folder Include="Mvc\Content\widgets\shared\img\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Data\GeoLocation\GeoLiteCity.dat" />
@@ -1748,8 +1752,6 @@
     <Content Include="Mvc\Views\Community\Default.cshtml" />
     <Content Include="Mvc\Views\ContactPhysician\Default.cshtml" />
     <Content Include="Mvc\Views\HealthLibrary\Default.cshtml" />
-    <Content Include="Mvc\Views\Home\SignIn.cshtml" />
-    <Content Include="Mvc\Views\Home\WelcomeBack.cshtml" />
     <Content Include="Mvc\Views\SuccessStories\Default.cshtml" />
     <Content Include="Mvc\Views\VirtualVisit\Default.cshtml" />
     <Content Include="Scripts\angular.min.js.map" />
