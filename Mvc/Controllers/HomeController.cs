@@ -16,7 +16,7 @@ namespace SitefinityWebApp.Mvc.Controllers
         public ActionResult Index()
         {
             //DebugHelper.SetMessage(Request.Cookies.Keys.OfType<object>().Aggregate((a,b) => $"{a}, {b}").ToString());
-            return View("SignIn");
+            return View(UserContext.IsAuthenticated ? "WelcomeBack" : "SignIn");
         }
     }
 }

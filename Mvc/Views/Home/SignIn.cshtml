@@ -1,48 +1,50 @@
-﻿<div class="page-wrapper" ng-app="demoModule">
+﻿<script src="~/Mvc/Content/widgets/home/js/signInApp.js"></script>
 
-    <!-- Page Conetnt Start -->
-    <div class="content-wrapper">
+
+<div class="page-wrapper" ng-app="signInApp">
+    <div class="content-wrapper" ng-controller="signInCtrl">
         <div class="banner">
-            <div class="container"> <img src="~/Content/assets/images/banner_1.png" alt=""> </div>
+            <div class="container">
+                <img src="~/Content/assets/images/banner_1.png" alt="">
+            </div>
         </div>
         <div class="container">
             <div class="col-sm-7">
                 <div class="para">
                     <h1> The Benefits of <span>Bariatric Surgery</span></h1>
                     <p>“Have you tried to lose weight and just can't seem to lose it or keep it off? Do you need to lose at least 75 to 100 pounds? If so, bariatric surgery may be right for you. Bariatric surgery is the medical answer for weight loss that has been proven to help patients lose weight and keep it off. “</p>
-                    </p>
                 </div>
                 <div class="para">
                     <h1>Surgical <span> Options</span></h1>
                     <p>There are several types of bariatric procedures you can choose. The surgical options vary in how the surgery is performed and its typical results. You and your doctor can discuss which bariatric surgery is right for you.</p>
-                    </p>
                 </div>
                 <div class="para">
                     <h1>Begin Your<span> Journey</span></h1>
                     <p>Once you schedule your surgery, you can register on this site to streamline the process, communicate with your doctor, get important resources, connect with other patients and more.</p>
-                    </p>
                 </div>
             </div>
-            <div class="col-sm-5 sidebanner"><img src="~/Content/assets/images/img1.png" alt=""></div>
+            <div class="col-sm-5 sidebanner">
+                <img src="~/Content/assets/images/img1.png" alt="">
+            </div>
             <div class="sep col-sm-12"></div>
             <div class="loginbox_otr col-sm-4">
                 <div class="login">
                     <div class="loginheader">RETURNING PATIENT LOGIN</div>
-                    <form name="signInForm" class="login" ng-controller="demoCtrl">
+                    <form name="signInForm" class="login">
                         <div class="alert alert-danger" ng-show="person.Error" id="diverror" style="display:none;">
                             <strong>Error!</strong><span ng-bind-html="person.MessageError"></span>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" ng-model="person.Email" class="form-control" placeholder="E-mail" name="username" id="Email" value="" autofocus />
+                            <input type="text" ng-model="person.Email" class="form-control" placeholder="E-mail" name="username" id="Email" value="" />
                             <!--<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">-->
                         </div>
                         <div class="form-group">
-                            <input ng-model="person.PasswordHash" class="form-control" type="password" placeholder="Password" name="password" id="PasswordHash" />
+                            <input ng-model="person.Password" class="form-control" type="password" placeholder="Password" name="password" id="PasswordHash" />
                             <!--<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">-->
                         </div>
 
-                        <input type="submit" class="btn btn-block btn-primary" name="login" id="loginbtn" value="Login" data-ng-click="SignIn()" />
+                        <input type="submit" class="btn btn-block btn-primary" name="login" id="loginbtn" value="Login" ng-click="login()" />
                         <!--<button type="submit" class="btn  btn-block btn-primary">login</button>-->
                         <button type="button" class="btn btn-block btn-default" data-ng-click="GoRegister()">Register</button>
                         <div class="lost_password">
@@ -56,20 +58,14 @@
                     <div class="col-sm-8">
                         <h1> Visit <span>My Health Rec</span></h1>
                         <p>Simply log-in to the Bariatrics Portal for access to a wealth of information about your weight loss journey. Track your progress, connect with your doctor, access important resources and more.</p>
-                        </p>
                     </div>
-                    <div class="img col-sm-4"> <img src="~/Content/assets/images/paraimg.png" alt=""> </div>
-
+                    <div class="img col-sm-4">
+                        <img src="~/Content/assets/images/paraimg.png" alt="">
+                    </div>
                     <button type="submit" class="btn paraimgbtn btn-default">Login Now</button>
                 </div>
             </div>
             <div class="bgshadow"><img src="~/Content/assets/images/boxshadow.png" alt=""></div>
         </div>
-
     </div>
 </div>
-<style>
-    .submitLoader {
-        background: url("~/content/assets/loader2.gif") no-repeat scroll 0% 0% !important;
-    }
-</style>

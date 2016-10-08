@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using Newtonsoft.Json.Serialization;
 using Telerik.Sitefinity.Abstractions;
 using Telerik.Sitefinity.Data;
 
@@ -62,12 +63,15 @@ namespace SitefinityWebApp
 
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             routes.Ignore("{resource}.axd/{*pathInfo}");
-
+            //GlobalConfiguration.Configuration.MapHttpAttributeRoutes();
             routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/",
                 defaults: new { id = RouteParameter.Optional }
                 );
+
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
+               new CamelCasePropertyNamesContractResolver();
 
         }
     }

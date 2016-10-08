@@ -1,40 +1,11 @@
 @using SitefinityWebApp.Mvc.Helpers
 
-<style>
-    #loading {
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        position: fixed;
-        display: block;
-        opacity: 1;
-        background-color: #000;
-        z-index: 9999999;
-    }
+<link href="~/Mvc/Content/widgets/header/css/style.css" rel="stylesheet" />
+<script src="~/Mvc/Content/widgets/header/js/helper.js"></script>
+<script src="~/Mvc/Content/widgets/header/js/headerApp.js"></script>
 
-    #loading-image {
-        position: absolute;
-        top: 42%;
-        height: 100px !important;
-        width: 100px !important;
-        left: 45%;
-        z-index: 100;
-    }
-</style>
-
-<script>
-
-        $(document).ready(function () {
-            $(".dropbtn").click(function () {
-                $(".dropdown-content").toggleClass("hidden unhidden");
-            });
-        });
-
-</script>
-
-<div ng-controller="demoCtrl">
-    <div class="container">
+<div ng-app="headerApp" >
+    <div class="container" ng-controller="headerCtrl">
         <div class="topbar">
             <label>Attend A free <span>seminars Today!</span></label>
             <div class="topbtn">
@@ -52,39 +23,12 @@
                             <span>Login</span>
                         }
                     </a>
-
                     <ul class="dropdown-content hidden" id="dropdiv">
-                        <li>
-
-                            <div class="login-div text-center" id="logdiv">
-
-                                @if (UserContext.IsAuthenticated)
-                                {
-                                    <a href="/Account/SignOut">
-                                        Logout
-                                    </a>
-                                }
-                                else
-                                {
-                                    <div class="" ng-show="person.error" id="diverror" style="display:none;font-size: 11px;color: rgb(225, 62, 62);margin-bottom: 5px;">
-                                        <span ng-bind-html="person.MessageError"></span>
-                                    </div>
-                                    <div class="profile-pic">
-                                        <i class="fa fa-user"></i>
-                                    </div>
-
-                                    <label class="control-label label2"></label><input type="text" class="form-control" style="height: 30px;margin-bottom: 10px;font-size: 12px;" ng-model="person.Email" placeholder="Email" />
-                                        <label class="control-label label2"></label><input type="password" class="form-control" style="height: 30px;margin-bottom: 10px;font-size: 12px;" ng-model="person.PasswordHash" placeholder="Password" />
-
-
-                                        <input type="submit" class="btn btn-block btn-primary" name="login" id="loginbtn1" value="Login" data-ng-click="SignIn()" />
-                                }
-                            </div>
-                        </li>
+                        
                         @if (UserContext.IsAuthenticated)
                         {
 
-
+                            <li><a ng-click="logout()">Logout</a></li>
                             if (Convert.ToString(Session["IsCareGiver"]) == "0" || string.IsNullOrEmpty(Convert.ToString(Session["IsCareGiver"])))
                             {
                                 <li><a href="../Account/UserProfile">My Account</a></li>
@@ -97,20 +41,32 @@
                             }
                             <li><a href="../Account/Settings">Change Password</a></li>
 
+                        }
+                        else
+                        {
+                            <li>
+                                <form class="login-form" name="loginForm">
+                                    <div class="login-div text-center" id="logdiv">
+                                        <div class="" ng-show="person.error" id="diverror" style="display: none; font-size: 11px; color: rgb(225, 62, 62); margin-bottom: 5px;">
+                                            <span ng-bind-html="person.MessageError"></span>
+                                        </div>
+                                        <div class="profile-pic">
+                                            <i class="fa fa-user"></i>
+                                        </div>
 
+                                        <input type="text" class="form-control" style="height: 30px; margin-bottom: 10px; font-size: 12px;" ng-model="person.email" placeholder="Email" />
+                                        <input type="password" class="form-control" style="height: 30px; margin-bottom: 10px; font-size: 12px;" ng-model="person.password" placeholder="Password" />
+
+                                        <input type="submit" class="btn btn-block btn-primary" name="login" id="loginbtn1" value="Login" ng-click="login()" />
+                                    </div>
+                                </form>
+                            </li>
                         }
                     </ul>
-
                 </div>
-
-
             </div>
-
-
         </div>
-
         <a href="~/" class="logo"><img src="~/Content/assets/images/logo.png" alt=""></a>
-
         <div class="info">
             <p>
                 <span class="phone">(215) 762-7000</span><br class="visible-xs">
@@ -142,7 +98,7 @@
                         <li class="@Html.IsSelected("home")"><a href="~/home">Home</a></li>
                         <li class="@Html.IsSelected("health-library")"><a href="~/health-library">Health Library</a></li>
                         <li class="@Html.IsSelected("community")"><a href="~/community">Community</a></li>
-                        <li><a href="http://virtualvisitwebapp-qa.azurewebsites.net/">Virtual Visit</a></li>
+                        <li class="@Html.IsSelected("virtual-visit")"><a href="~/virtual-visit">Virtual Visit</a></li>
                         <li class="@Html.IsSelected("success-stories")"><a href="~/success-stories">Success Stories</a></li>
                         <li class="@Html.IsSelected("about-us")"><a href="~/about-us">About Us</a></li>
                         <li class="@Html.IsSelected("contact-physician")"><a href="~/contact-physician">Contact Physician</a></li>

@@ -11,7 +11,8 @@ namespace SitefinityWebApp.Mvc.Helpers
 
         public static bool Login(string email, string password)
         {
-            var passkey = SecurityHelper.GetKey(string.Concat(email, password));
+            var passkey = string.Concat(email, password).GetKey();
+            //var passkey = password;
             using (var model = new MasterPatientIndexDevEntities())
             {
                 var user = model.People.SingleOrDefault(p => p.PasswordHash == passkey);
