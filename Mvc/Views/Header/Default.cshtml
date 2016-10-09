@@ -1,0 +1,106 @@
+@using SitefinityWebApp.Mvc.Helpers
+
+<link href="~/Mvc/Content/widgets/header/css/style.css" rel="stylesheet" />
+<script src="~/Mvc/Content/widgets/header/js/helper.js"></script>
+<script src="~/Mvc/Content/widgets/header/js/headerCtrl.js"></script>
+
+<div class="container" ng-controller="headerCtrl">
+    <div class="topbar">
+        <label>Attend A free <span>seminars Today!</span></label>
+        <div class="topbtn">
+            <a href="~/sign-up"><img src="~/Content/assets/images/icn_bariatics.png" alt="">My Health Rec</a>
+            <a href="~/sign-up"><img src="~/Content/assets/images/icn_register.png" alt="">Register</a>
+            <div class="dropdown3">
+                <i class="fa fa-uaer"></i>
+                <a class="dropbtn">
+                    @if (UserContext.IsAuthenticated)
+                    {
+                        <span>My Account</span>
+                    }
+                    else
+                    {
+                        <span>Login</span>
+                    }
+                </a>
+                <ul class="dropdown-content hidden" id="dropdiv">
+
+                    @if (UserContext.IsAuthenticated)
+                    {
+
+                        <li><a ng-click="logout()">Logout</a></li>
+                        if (true)
+                        {
+                            <li><a href="../Account/UserProfile">My Account</a></li>
+                            <li><a href="../Account/MyCareGivers">My Caregivers</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="../Account/CareGiverProfile">My Account</a></li>
+                            <li><a href="../Account/MyPatientProfile">My Patients</a></li>
+                        }
+                        <li><a href="../Account/Settings">Change Password</a></li>
+
+                    }
+                    else
+                    {
+                        <li>
+                            <form class="login-form" name="loginForm">
+                                <div class="login-div text-center" id="logdiv">
+                                    <div class="" ng-show="person.error" id="diverror" style="display: none; font-size: 11px; color: rgb(225, 62, 62); margin-bottom: 5px;">
+                                        <span ng-bind-html="person.MessageError"></span>
+                                    </div>
+                                    <div class="profile-pic">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+
+                                    <input type="text" class="form-control" style="height: 30px; margin-bottom: 10px; font-size: 12px;" ng-model="person.email" placeholder="Email" />
+                                    <input type="password" class="form-control" style="height: 30px; margin-bottom: 10px; font-size: 12px;" ng-model="person.password" placeholder="Password" />
+
+                                    <input type="button" class="btn btn-block btn-primary" name="login" id="loginbtn1" value="Login" ng-click="login()" />
+                                </div>
+                            </form>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <a href="~/" class="logo"><img src="~/Content/assets/images/logo.png" alt=""></a>
+    <div class="info">
+        <p>
+            <span class="phone">(215) 762-7000</span><br class="visible-xs">
+            &nbsp;| &nbsp;<span class="add">230 N Broad St Philadelphia, PA 19102</span>
+        </p>
+        <div class="input-group hidden-xs">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><img src="~/Content/assets/images/icn_search.png" alt=""></button>
+            </span>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="input-group visible-xs">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><img src="~/Content/assets/images/icn_search.png" alt=""></button>
+                    </span>
+                </div>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="@Html.IsSelected("sign-in,welcome")"><a href="~/">Home</a></li>
+                    <li class="@Html.IsSelected("health-library")"><a href="~/health-library">Health Library</a></li>
+                    <li class="@Html.IsSelected("community")"><a href="~/community">Community</a></li>
+                    <li class="@Html.IsSelected("virtual-visit")"><a href="~/virtual-visit">Virtual Visit</a></li>
+                    <li class="@Html.IsSelected("success-stories")"><a href="~/success-stories">Success Stories</a></li>
+                    <li class="@Html.IsSelected("about-us")"><a href="~/about-us">About Us</a></li>
+                    <li class="@Html.IsSelected("contact-physician")"><a href="~/contact-physician">Contact Physician</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

@@ -11,11 +11,18 @@ namespace SitefinityWebApp.Mvc.Helpers
     {
         public static string IsSelected(this HtmlHelper html, string url, string cssClass = null)
         {
-            if (string.IsNullOrEmpty(cssClass)) cssClass = "active";
+            try
+            {
+                if (string.IsNullOrEmpty(cssClass)) cssClass = "active";
 
-            var currentNode = SiteMapBase.GetActualCurrentNode();
+                var currentNode = SiteMapBase.GetActualCurrentNode();
 
-            return url.Contains(currentNode.UrlName) ?  cssClass : string.Empty;
+                return url.Contains(currentNode.UrlName) ? cssClass : string.Empty;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
+            }
         }
     }
 }

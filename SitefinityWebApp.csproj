@@ -1041,6 +1041,8 @@
     <Compile Include="Mvc\Controllers\CommunityController.cs" />
     <Compile Include="Mvc\Controllers\ContactPhysicianController.cs" />
     <Compile Include="Mvc\Controllers\DebugMessageController.cs" />
+    <Compile Include="Mvc\Controllers\FooterController.cs" />
+    <Compile Include="Mvc\Controllers\HeaderController.cs" />
     <Compile Include="Mvc\Controllers\HealthLibraryController.cs" />
     <Compile Include="Mvc\Controllers\SignInController.cs" />
     <Compile Include="Mvc\Controllers\SignUpController.cs" />
@@ -1487,9 +1489,9 @@
     <Content Include="Mvc\Content\vendor\jquery\jquery-3.1.1.min.js" />
     <Content Include="Mvc\Content\widgets\home\css\welcome.css" />
     <Content Include="Mvc\Content\widgets\home\js\welcomeCtrl.js" />
-    <Content Include="Mvc\Content\widgets\shared\css\style.css" />
-    <Content Include="Mvc\Content\widgets\shared\js\headerCtrl.js" />
-    <Content Include="Mvc\Content\widgets\shared\js\helper.js" />
+    <Content Include="Mvc\Content\widgets\header\css\style.css" />
+    <Content Include="Mvc\Content\widgets\header\js\headerCtrl.js" />
+    <Content Include="Mvc\Content\widgets\header\js\helper.js" />
     <Content Include="Mvc\Content\widgets\home\js\signInCtrl.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-sanitize.js" />
@@ -1572,7 +1574,6 @@
     <Content Include="Content\js\extensions\index.php" />
     <Content Include="Content\js\extensions\source\index.php" />
     <Content Include="packages.config" />
-    <Content Include="Mvc\Views\Shared\Layout.cshtml" />
     <Content Include="Mvc\Views\SignUp\Default.cshtml" />
     <EntityDeploy Include="Data\PatientModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -1640,6 +1641,8 @@
     <Content Include="Mvc\Content\vendor\font-awesome-4.6.3\scss\_screen-reader.scss" />
     <Content Include="Mvc\Content\vendor\font-awesome-4.6.3\scss\_stacked.scss" />
     <Content Include="Mvc\Content\vendor\font-awesome-4.6.3\scss\_variables.scss" />
+    <Content Include="Mvc\Views\Header\Default.cshtml" />
+    <Content Include="Mvc\Views\Footer\Default.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1806,8 +1809,8 @@
     <Folder Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Global\Global\" />
     <Folder Include="App_Data\Sitefinity\WebsiteTemplates\Patient\App_Themes\Patient\Images\Images\" />
     <Folder Include="Mvc\Content\img\" />
+    <Folder Include="Mvc\Content\widgets\header\img\" />
     <Folder Include="Mvc\Content\widgets\home\img\" />
-    <Folder Include="Mvc\Content\widgets\shared\img\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Data\GeoLocation\GeoLiteCity.dat" />

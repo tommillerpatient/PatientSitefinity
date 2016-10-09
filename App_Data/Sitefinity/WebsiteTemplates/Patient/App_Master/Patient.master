@@ -1,6 +1,6 @@
 ﻿<%@ Master Language="C#" %>
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en">
 <head id="Head1" runat="server">
     <title></title>
     <meta charset="utf-8" />
@@ -15,7 +15,7 @@
 </head>
 <body class="main-body">
     <form id="form1" runat="server">
-        <div id="wrapper">
+        <div id="wrapper" ng-app="app">
             <div id="header">
                 <asp:contentplaceholder id="headerPlaceholder" runat="server"/>
             </div>

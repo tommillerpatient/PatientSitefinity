@@ -11,11 +11,6 @@ namespace SitefinityWebApp.Api.Controllers
 {
     public class AccountController : ApiController
     {
-        public string GetTestText()
-        {
-            return "Test succeeded";
-        }
-
         [HttpPost]
         public HttpResponseMessage Login([FromBody] CredentialModel data)
         {
