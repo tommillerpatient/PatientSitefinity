@@ -1,0 +1,53 @@
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href="~/Content/assets/css/custome2.css" rel="stylesheet" />
+
+<div class="clearfix"></div>
+<div class="container">
+    <div class="sentence">
+        <div class="row" style="background-color:#E8E8E8">
+
+            <h1>Change Your Password</h1>
+            <div class="alert alert-danger" id="diverror" ng-show="person.Error" style="display:none;">
+                <strong>Error!</strong><span ng-bind-html="person.MessageError"></span>
+            </div>
+            <div class="col-md-4 col-md-offset-4  text-center">
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="sr-only">Current Password</label>
+                    <input type="password" name="first-name"
+                           ng-maxlength="20" ng-minlength="2" ng-required="true" required
+                           size="40" id="OldPassword" ng-model="person.PasswordOld"
+                           class="form-control input text-center btn-block" placeholder="Current Password" tabindex=1 autofocus />
+                    <!--<input type="Enter Code" class=" form-control input text-center btn-block" placeholder="Enter Code">-->
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="sr-only">New Password</label>
+                    <input type="password"
+                           ng-maxlength="20" ng-minlength="2" required
+                           name="last-name" ng-model="person.PasswordHash"
+                           size="40" class="form-control input text-center btn-block" placeholder="New Password" id="NewPassword" tabindex=2 />
+                    <!--<input type="Enter Code" class=" form-control input text-center btn-block" placeholder="Enter Code">-->
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="sr-only">Confirm Password</label>
+                    <input type="password"
+                           ng-maxlength="20" ng-minlength="2" required
+                           name="last-name"
+                           size="40" class="form-control input text-center btn-block" placeholder="Confirm Password" id="ConfirmPassword" tabindex=2 />
+                    <!--<input type="Enter Code" class=" form-control input text-center btn-block" placeholder="Enter Code">-->
+                </div>
+                <div class="form-group">
+                    <input type="button" value="Change Password"
+                           class="btn btn-lg btn-block btn-oval"
+                           data-ng-click="UpdatePassword()" tabindex=27 />
+                    <!--<button type="submit" class="btn btn-lg btn-block btn-oval">Continue</button>-->
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="form-group ">
+        <img src="~/Content/assets/images/boxshadow.png">
+    </div>
+</div>

@@ -32,7 +32,7 @@ namespace SitefinityWebApp.Mvc.Controllers
             var model = new AuthorizationModel
             {
                 AuthorizationUrl = string.IsNullOrEmpty(AuthorizationUrl) ? "\'default\'" : AuthorizationUrl,
-                UnauthorizationUrl = string.IsNullOrEmpty(UnauthorizationUrl) ? "sign-in" : UnauthorizationUrl
+                UnauthorizationUrl = string.IsNullOrEmpty(UnauthorizationUrl) ? "\'default\'" : UnauthorizationUrl
             };
 
             if (Request.RawUrl.Contains("Edit") || Request.RawUrl.Contains("Sitefinity"))
@@ -44,10 +44,12 @@ namespace SitefinityWebApp.Mvc.Controllers
             {
                 return string.IsNullOrEmpty(AuthorizationUrl)
                     ? View("Empty")
-                    : (ActionResult) Redirect(AuthorizationUrl);
+                    : (ActionResult) Redirect($"/{AuthorizationUrl}");
             }
 
-            return Redirect(model.UnauthorizationUrl);
+            return string.IsNullOrEmpty(UnauthorizationUrl)
+                    ? View("Empty")
+                    : (ActionResult)Redirect($"/{UnauthorizationUrl}");
         }
     }
 }

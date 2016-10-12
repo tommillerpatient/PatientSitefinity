@@ -26,7 +26,8 @@
 
             $scope.submitting = false;
             //alert(JSON.stringify(res));
-            location.reload(true);
+            //location.reload(true);
+            location.href = "/welcome";
 
         }, function (e) {
             $scope.submitting = false;
@@ -58,7 +59,8 @@
 
             $scope.submitting = false;
             //alert(JSON.stringify(res));
-            location.reload(true);
+            //location.reload(true);
+            location.href = "/sign-in";
 
         }, function (e) {
             $scope.submitting = false;

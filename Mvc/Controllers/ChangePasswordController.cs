@@ -1,10 +1,14 @@
+using System;
+using System.ComponentModel;
+using System.Linq;
 using System.Web.Mvc;
 using Telerik.Sitefinity.Mvc;
+using SitefinityWebApp.Mvc.Models;
 
 namespace SitefinityWebApp.Mvc.Controllers
 {
-    [ControllerToolboxItem(Name = "SuccessStories", Title = "Success Stories", SectionName = "PageWidgets")]
-    public class SuccessStoriesController : Controller
+    [ControllerToolboxItem(Name = "ChangePassword", Title = "Change Password", SectionName = "PageWidgets")]
+    public class ChangePasswordController : Controller
     {
         /// <summary>
         /// This is the default Action.

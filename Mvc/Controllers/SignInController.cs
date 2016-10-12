@@ -15,7 +15,7 @@ namespace SitefinityWebApp.Mvc.Controllers
         /// </summary>
         public ActionResult Index()
         {
-            return !UserContext.IsAuthenticated ? View("Default") : (ActionResult)Redirect("welcome");
+            return View("Default");
         }
     }
 }
